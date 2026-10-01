@@ -1,0 +1,29 @@
+{
+  "name": "tienda-online-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend REST para tienda e-commerce multi-categoria con Turso y Cloudinary",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@fluidjs/multer-cloudinary": "^1.0.4",
+    "@libsql/client": "^0.15.15",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

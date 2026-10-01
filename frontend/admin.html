@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Administración · Lumina</title><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="./css/style.css"><link rel="stylesheet" href="./css/admin.css"></head>
+<body>
+<div id="loginScreen" class="login-screen"><div class="login-box"><div class="brand">LUMINA<span>.</span></div><h1>Panel de administración</h1><p class="muted">Accede para gestionar la tienda.</p><form id="loginForm"><input class="field" name="usuario" placeholder="Usuario" required><input class="field" name="password" type="password" placeholder="Contraseña" required><button class="btn btn-primary">Entrar</button></form><p id="loginError" style="color:var(--danger)"></p></div></div>
+<div id="adminApp" class="admin-layout hidden">
+<aside class="sidebar"><div class="brand">LUMINA<span>.</span></div><nav class="nav-list"><button class="active" data-section="dashboard">Dashboard</button><button data-section="productos">Productos</button><button data-section="categorias">Categorías</button><button data-section="pedidos">Pedidos</button><button data-section="contenido">Contenido</button><button data-section="mensajes">Mensajes</button></nav><button class="btn btn-ghost" id="logout" style="width:100%;margin-top:20px">Cerrar sesión</button></aside>
+<main class="admin-main"><div class="admin-top"><div><h1 id="sectionTitle">Dashboard</h1><p class="muted">Gestiona tu tienda desde un solo lugar.</p></div><a class="btn btn-ghost" href="index.html">Ver tienda ↗</a></div>
+<section id="dashboard" class="admin-section active"><div class="stats"><div class="stat"><small>Productos</small><strong id="sProducts">0</strong></div><div class="stat"><small>Pedidos</small><strong id="sOrders">0</strong></div><div class="stat"><small>Pendientes</small><strong id="sPending">0</strong></div><div class="stat"><small>Ventas del mes</small><strong id="sSales">$0</strong></div><div class="stat"><small>Sin stock</small><strong id="sOut">0</strong></div></div><div class="admin-card"><div class="toolbar"><h2>Ventas últimos 30 días</h2></div><div class="canvas-wrap"><canvas id="salesCanvas"></canvas></div></div></section>
+
+<section id="productos" class="admin-section"><div class="admin-card"><div class="toolbar"><h2>Productos</h2><button class="btn btn-primary" id="newProduct">+ Nuevo producto</button></div><div id="productsTable"></div></div></section>
+<section id="categorias" class="admin-section"><div class="admin-card"><div class="toolbar"><h2>Categorías</h2><button class="btn btn-primary" id="newCategory">+ Nueva categoría</button></div><div id="categoriesTable"></div></div></section>
+<section id="pedidos" class="admin-section"><div class="admin-card"><div class="toolbar"><h2>Pedidos</h2><select class="field" id="orderStatusFilter" style="max-width:220px"><option value="">Todos</option><option>pendiente</option><option>confirmado</option><option>enviado</option><option>entregado</option><option>cancelado</option></select></div><div id="ordersTable"></div></div></section>
+<section id="contenido" class="admin-section"><div class="admin-card"><h2>Contenido editable</h2><form id="contentForm" class="admin-form"></form></div></section>
+<section id="mensajes" class="admin-section"><div class="admin-card"><div class="toolbar"><h2>Mensajes</h2></div><div id="messagesTable"></div></div></section>
+</main></div>
+
+<div class="modal" id="adminModal"><div class="modal-box"><div class="modal-head"><h2 id="modalTitle">Formulario</h2><button class="icon-btn" id="closeAdminModal">×</button></div><div id="adminModalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+<script>window.API_BASE=localStorage.getItem("STORE_API")||"http://localhost:3000/api";</script><script src="./js/admin.js"></script>
+</body></html>
